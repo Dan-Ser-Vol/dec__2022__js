@@ -28,6 +28,6 @@ console.log(typeof  a, b, c)
 
 //- За допомогою 3х різних prompt() отримати 3 слова які являються вашими Імям, По-Батькові та роками. та вивести в консоль
   let myName = prompt("Введіть ім'я", '')
-  let fatherName = prompt("Введіть Як Вас Побатькові", '')
+  let fatherName = prompt("Введіть як вас Побатькові", '')
   let age = prompt("Введіть ваш вік", '')
 console.log(`${myName} ${fatherName} ${age}`)
