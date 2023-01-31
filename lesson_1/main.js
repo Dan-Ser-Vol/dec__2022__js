@@ -12,6 +12,19 @@ const NUM_FLOAT = 2.7
 const NUM_16 = 16
 let isTrue = true
 let isFalse = false
+console.log(hello,
+owu,
+com,
+ua,
+num1,
+num10,
+numMinus999,
+num123,
+PI,
+NUM_FLOAT,
+NUM_16,
+isTrue,
+isFalse)
 
 //Створити 3 змінних firstName, middleName, lastName, наповнити їх своїм ПІБ.
 let firstName = 'Sergiy'
