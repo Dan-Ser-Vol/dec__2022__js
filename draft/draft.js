@@ -31,5 +31,5 @@ const checkTypeAge = (num) => {
 
 };
 
-let userData = prompt("Введіть число");
+let userData = +prompt("Введіть число");
 checkTypeAge(userData);
