@@ -15,7 +15,7 @@ console.log(arr[9]);
 // - Створити 3 об'єкти які описують книги. Поля об'єкту : title ,pageCount, genre.
 let book1 = {title: "First Book", pageCount: 100, genre: 'fantasy'};
 let book2 = {title: "Second Book", pageCount: 266, genre: 'drama'};
-let book3 = {title: "", pageCount: 399, genre: 'action'}
+let book3 = {title: "Third", pageCount: 399, genre: 'action'}
 
 // - Створити 3 об'єкти які описують книги. Поля об'єкту : title ,pageCount, genre, authors. Поле "автори" - являється  масивом. Кожен автор має поля name та age.
 let book4 = {title: "First Book", pageCount: 100, genre: 'fantasy', authors: [{name: 'Peter', age: 34}]};
