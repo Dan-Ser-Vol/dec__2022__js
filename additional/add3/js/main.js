@@ -1,4 +1,3 @@
-
 const users = window.users
 //     /*За допомогою циклу вивести всю інформацію про пости використовуючи шаблон Template 1.1.
 //     * ЗА допомоги стилів побудувати структуру "сітки" по 5 об'єктів в лінію
@@ -20,18 +19,26 @@ const users = window.users
 //
 // </div>
 
-document.write(`<div class="wrap">`)
 for (const user of users) {
     for (const userKey in user) {
         document.write(`
-         <div class="post-card">
-       <h3> user ID${user[userKey]} - user TITLE  ${user[userKey]}}</h3>
-         <p>BODY</p>
-     </div>
+         <ul class="post-card">
+            <li> ${userKey}: ${user[userKey]}</li>
+         </ul>
         `)
     }
-
 }
-document.write(`</div>`)
+
+// document.write(`<div class="wrap">`)
+// for (let i = 0; i < users.length; i++) {
+//     const user = users[i]
+//     document.write(`
+//          <div class="post-card">
+//             <h3>  ID: ${user.id}  TITLE: ${user.title}}</h3>
+//             <p>${user.body}</p>
+//          </div>
+//         `)
+// }
+// document.write(`</div>`)
 
 

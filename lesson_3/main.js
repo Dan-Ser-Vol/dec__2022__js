@@ -1,27 +1,17 @@
 // - За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом всередині
 for (let i = 0; i < 10; i++) {
-    let k = i + 1
-    document.write(`<div class="user_red">div №${k}</div>`)
-    if (k === 10) {
-        document.write(`<div class="user"><hr></div>`)
-    }
+    document.write(`<div class="user_red">Some text</div>`)
 }
 
 // - За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом і індексом всередині
 for (let i = 0; i < 10; i++) {
     document.write(`<div class="user_green">index №${i}</div>`)
-    if (i === 9) {
-        document.write(`<div class="user"><hr></div>`)
-    }
 }
 
 // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом всередині.
 let num = 1
 while (num <= 20) {
     document.write(`<h1 class="user_red">while №${num}</h1>`)
-    if (num === 20) {
-        document.write(`<div class="user"><hr></div>`)
-    }
     num++
 }
 
@@ -29,9 +19,6 @@ while (num <= 20) {
 let index = 0
 while (index <= 20) {
     document.write(`<h1 class="user_green">while index №${index}</h1>`)
-    if (index === 20) {
-        document.write(`<div class="user"><hr></div>`)
-    }
     index++
 }
 
