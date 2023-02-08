@@ -141,7 +141,6 @@ for (let i = 0; i < users.length; i++) {
 }
 document.write(`</div>`)
 
-
 for (let i = 0; i < users.length; i++) {
     const user = users[i];
     if (!user.status)
