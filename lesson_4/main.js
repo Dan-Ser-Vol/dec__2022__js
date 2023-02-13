@@ -133,6 +133,7 @@ function swap(arr, index1, index2) {
     arr[index2] = b
     return arr
 }
+
 console.log(swap(arrSwap, 0, 7))
 
 
@@ -142,10 +143,7 @@ const currencyArr = [{currency: 'USD', value: 40}, {currency: 'EUR', value: 42}]
 
 function exchange(sumUAH, currencyValues, exchangeCurrency) {
     for (const currencyElem of currencyValues) {
-        if (currencyElem.currency === 'USD') {
-            return sumUAH / currencyElem.value
-        }
-        if (currencyElem.currency === 'EUR') {
+        if (currencyElem.currency === exchangeCurrency) {
             return sumUAH / currencyElem.value
         }
     }
