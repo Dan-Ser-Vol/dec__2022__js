@@ -1,6 +1,7 @@
-const users = window.users
+import users from './myData.js';
 //     /*За допомогою циклу вивести всю інформацію про пости використовуючи шаблон Template 1.1.
 //     * ЗА допомоги стилів побудувати структуру "сітки" по 5 об'єктів в лінію
+console.log(users)
 
 document.write(`<div class="wrap">`)
 for (let i = 0; i < users.length; i++) {

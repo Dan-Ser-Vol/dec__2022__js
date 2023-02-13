@@ -1,5 +1,6 @@
+const books = ['essfs',  2, 4]
 
- window.users = [
+  const users = [
     {
         userId: 1,
         id: 1,
@@ -604,3 +605,4 @@
 
 
 
+export default users
