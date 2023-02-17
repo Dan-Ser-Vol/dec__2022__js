@@ -122,15 +122,13 @@ console.log(sum(numArr))
 // 12) створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відаовідних індексах
 // Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
 const arrSwap = [1, 2, 3, 4, 6, 7, 8, 9]
-
 function swap(arr, index1, index2) {
-    let a = arr[index1]
-    let b = arr[index2]
-    arr[index1] = a
-    arr[index2] = b
-    return arr
+    let a = arr[index1];
+    let b = arr[index2];
+    arr[index1] = a;
+    arr[index2] = b;
+    return arr;
 }
-
 console.log(swap(arrSwap, 0, 7))
 
 

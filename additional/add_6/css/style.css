@@ -1,0 +1,17 @@
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+
+    background-color: #e1e1ea;
+}
+
+
+.user-block {
+    width: 45%;
+    margin: 10px;
+}
+
+
+h3{
+    color: #d45a5a;
+}
