@@ -20,7 +20,7 @@ console.log(strUpper.toLowerCase(), strUpper_2.toLowerCase(), strUpper_3.toLower
 
 // 4) Є "брудна" стрінга let str = ' dirty string   ' . Почистити її від зайвих пробілів.
 let strDirty = ' dirty string    '
-console.log(strDirty.replaceAll(' ', '').replace('y', 'y '))
+console.log(strDirty.trim())
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -98,7 +98,7 @@ const color = ['red', 'black']
 
 //Створити масть
 const createSuit = (variable, cardSuit, value, color) => {
-    for (let i = 0; i < 9; i++) {
+    for(let i = 0; i < 9; i++) {
         return variable.push({cardSuit, value, color})
     }
 }
