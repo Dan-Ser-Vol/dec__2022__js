@@ -128,9 +128,8 @@ function validatorEmail(email) {
         console.log(true)
     }
 }
+validatorEmail('someeMAIL@gmail.com')
 
-// validatorEmail('someeMAIL@gmail.com')
-books.forEach()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // - є масивlet

@@ -12,19 +12,19 @@ const users = []
 for (let i = 0; i < 10; i++) {
     users.push(new User(i + 1, 'Boris' + i, 'Jhonsonyuk', 'dan@lit.com', '065454545' + i))
 }
-// console.log(users)
+console.log('Масив users',users)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 // 2) Взяти масив з  User[] з попереднього завдання, та відфільтрувати , залишивши тільки об'єкти з парними id (filter)
 const userFilter = users.filter(item => item.id % 2 === 0)
-// console.log(userFilter);
+console.log( 'Парні id' ,userFilter);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 // 3) Взяти масив з  User[] з попереднього завдання, та відсортувати його по id. по зростанню (sort)
 const userSort = users.sort((a, b) => a - b)
-// console.log(userSort);
+ console.log('Сортування по зростанню',userSort);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -43,17 +43,12 @@ class Client {
         const clients = []
         for (let i = 0; i <= 10; i++) {
             clients.push({
-                id: this
-                    .id + i,
-                name: this
-                    .name + 1,
-                surname: this
-                    .surname,
+                id: this.id + i,
+                name: this.name + (i + 1 ),
+                surname: this.surname,
                 email: i + this.email,
-                phone: this
-                    .phone + i,
-                order: this
-                    .order.slice(1, i + 1)
+                phone: this.phone + i,
+                order: this.order.slice(1, i + 1)
             })
         }
         return clients
@@ -69,16 +64,18 @@ const objClients = {
     order: ['TV', 'PC', 'Notebooks', 'Smartphones', ' frigs', 'tables', 'Phones', 'Monitors', 'Cables']
 }
 const newClient = new Client(objClients)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 //5) створити пустий масив, наповнити його 10 об'єктами Client
 const clients = newClient.createClients()
-// console.log(clients);
+console.log( 'Масив clients', clients);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //6) Взяти масив (Client [] з попереднього завдання).Відсортувати його по кількості товарів в полі order по зростанню. (sort)
 const clientsSort = clients.sort((a, b) => a.order.length - b.order.length)
-// console.log(clientsSort);
+console.log('Сорт по кількості товарів' ,clientsSort);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -113,20 +110,21 @@ function CreateCar(model, manufacturer, yearOfManufacture, maxSpeed, engineVolum
 }
 
 const  newCar = new CreateCar('TT', 'AUDI', 2004, 280, '250')
+
 // -- drive () - яка виводить в консоль `їдемо зі швидкістю ${максимальна швидкість} на годину`
-// newCar.drive()
+ newCar.drive()
 
 // -- info () - яка виводить всю інформацію про автомобіль в форматі `назва поля - значення поля`
-// newCar.info()
+newCar.info()
 
 // -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
-// newCar.increaseMaxSpeed(20)
+newCar.increaseMaxSpeed(20)
 
 // -- changeYear (newValue) - змінює рік випуску на значення newValue
-// newCar.changeYear(2015)
+ newCar.changeYear(2015)
 
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
-// console.log(newCar.addDriver({name: ' Michael', lastName:'Schumacher',  age: 30}));
+console.log(newCar.addDriver({name: ' Michael', lastName:'Schumacher',  age: 30}));
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -182,7 +180,53 @@ console.log(car.addDriver({name: ' Michael', lastName:'Schumacher',  age: 30}));
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-// -створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити масив з 10 попелюшок.
-// Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
+// 9) створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити масив з 10 попелюшок.
+class Cinderella {
+    constructor(name, age, footSize) {
+        this.name = name;
+        this.age = age;
+        this.footSize = footSize;
+    }
+
+}
+
+const cinderellaArray = [
+    new Cinderella('Bridget', 29, 49),
+    new Cinderella('Julia', 18, 36),
+    new Cinderella('Anna', 22, 38),
+    new Cinderella('Dianna', 66, 42),
+    new Cinderella('Marry', 21, 39),
+    new Cinderella('Jenifer', 73, 41),
+    new Cinderella('Lona', 50, 35),
+    new Cinderella('Galina', 20, 46),
+    new Cinderella('Natasha', 27, 36),
+    new Cinderella('Sofia', 21, 39),
+];
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// 10)  Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
+class Prince {
+    constructor(name, age, shoe) {
+        this.name = name;
+        this.age = age;
+        this.shoe = shoe;
+    }
+}
+
+// Приклад створення об'єкта класу "Принц"
+const prince = new Prince('Petro', 45, 46);
+
+
 //     За допомоги циклу знайти яка попелюшка повинна бути з принцом.
+for (const cinderella of cinderellaArray) {
+    if (prince.shoe === cinderella.footSize)
+    console.log(`З цим принцом ${prince.name} повинна бути ця попелюшка ${cinderella.name}`)
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 //     Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
+const findCinderella = cinderellaArray.find(item => item.footSize === prince.shoe )
+console.log(findCinderella);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
