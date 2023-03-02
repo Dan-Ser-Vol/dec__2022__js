@@ -160,7 +160,7 @@ class Car {
         console.log( 'change Year', this.yearOfManufacture = newYear)
     }
     addDriver  (driver)  {
-        return  this.driver = driver;
+          this.driver = driver;
     }
 
 }
@@ -207,15 +207,16 @@ const cinderellaArray = [
 
 // 10)  Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
 class Prince {
-    constructor(name, age, shoe) {
+    constructor(name, age, shoe, status) {
         this.name = name;
         this.age = age;
         this.shoe = shoe;
+        this.status = status
     }
 }
 
 // Приклад створення об'єкта класу "Принц"
-const prince = new Prince('Petro', 45, 46);
+const prince = new Prince('Petro', 81, 46, 'dead');
 
 
 //     За допомоги циклу знайти яка попелюшка повинна бути з принцом.
