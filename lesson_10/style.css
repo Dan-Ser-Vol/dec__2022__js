@@ -1,0 +1,41 @@
+
+form, .table {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    padding: 20px;
+    justify-content: center;
+    align-items: center
+}
+input {
+    margin: 10px;
+    width: 300px;
+}
+
+span {
+    display: block
+}
+
+#user, .obj {
+    display: flex;
+    margin-top: 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #b8e1ac;
+
+}
+
+.number {
+    width: 100px;
+    height: 60px;
+    font-size: 50px;
+    margin-top: 20px;
+    margin-left: 20px;
+    background: #c2c283;
+text-align: center;
+}
+
+tr, td, #tableContainer {
+    border: 1px solid black
+}

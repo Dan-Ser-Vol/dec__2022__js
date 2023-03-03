@@ -86,7 +86,7 @@
 class Tag {
     constructor(teg) {
         this.title = teg.title
-        this.descripton = teg.description
+        this.description = teg.description
         this.attributes = teg.attributes
     }
 }
@@ -168,8 +168,12 @@ const tags =[
 
 ]
 
-const newTag = new Tag(tags)
-console.log(newTag)
+for (const tag of tags) {
+    const newTag = new Tag(tag)
+    console.log(newTag)
+}
+
+
 
 // Таким чином описати теги
 // -a
