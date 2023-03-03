@@ -72,12 +72,12 @@ function displayObjects() {
     const container = document.querySelector('.container');
     container.innerHTML = '';
 
-    // Розраховуємо змінні для slice
+
     const startIndex = currentPage * pageSize;
     const endIndex = startIndex + pageSize;
     const pageObjects = objArr.slice(startIndex, endIndex);
 
-    // append objects to page
+
     pageObjects.forEach(obj => {
         const div = document.createElement('div');
         div.classList.add('obj')
@@ -86,7 +86,7 @@ function displayObjects() {
     });
 }
 
-// button Next
+
 document.getElementById('next').addEventListener('click', () => {
     if (currentPage < objArr.length / pageSize - 1) {
         currentPage++;
@@ -94,7 +94,7 @@ document.getElementById('next').addEventListener('click', () => {
     }
 });
 
-// button Prev
+
 document.getElementById('prev').addEventListener('click', () => {
     if (currentPage > 0) {
         currentPage--;
