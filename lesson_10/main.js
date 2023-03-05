@@ -3,6 +3,10 @@
 // Іншими словами : заповниои форму, натиснули кнопку, під формою з'явився блок з вашим об'єктом
 // ==========================
 const button = document.querySelector('#click')
+
+
+
+
 button.addEventListener(
     'click',
     function (e) {
@@ -45,9 +49,18 @@ document.onreadystatechange = function () {
 // 3) Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще,
 // в масив sessions зберігається інформація про дату та час відвідування сторінки.
 // =========================
-let now = new Date()
+const now = new Date();
+const nowTime = {
+    year: now.getFullYear(),
+    month: now.getMonth(),
+    day: now.getDate(),
+    hours: now.getHours(),
+    minutes: now.getMinutes()
+};
+
+
 let sessions = JSON.parse(localStorage.getItem('sessions')) || [];
-sessions.push(now);
+sessions.push(nowTime);
 localStorage.setItem('sessions', JSON.stringify(sessions));
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -59,14 +72,15 @@ localStorage.setItem('sessions', JSON.stringify(sessions));
 
 const objArr = []
 
-for (let i = 0; i <100; i++) {
+for (let i = 0; i < 100; i++) {
     const newObj = {
-        id: i+1, name: `Object ${i+1}`
+        id: i + 1, name: `Object ${i + 1}`
     }
-objArr.push(newObj)
+    objArr.push(newObj)
 }
 const pageSize = 10;
 let currentPage = 0;
+
 
 function displayObjects() {
     const container = document.querySelector('.container');
@@ -129,5 +143,4 @@ function createTable() {
     }
     tableContainer.appendChild(table);
 }
-
 createTableBtn.addEventListener('click', createTable);

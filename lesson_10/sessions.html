@@ -20,7 +20,7 @@
     let sessions1 = JSON.parse(localStorage.getItem('sessions')) || [];
     for (const item of sessions1) {
         const block = document.createElement('div')
-        block.innerText = item
+        block.innerText = `day:${item.day} month:${item.month}  year:${item.year} time:${item.hours}:${item.minutes}`
         rootBlock.append(block)
     }
 </script>
