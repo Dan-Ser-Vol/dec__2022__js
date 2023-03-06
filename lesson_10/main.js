@@ -2,29 +2,38 @@
 // При натисканні на кнопку зчитати данні з полів, та вивести об'єкт в документ.
 // Іншими словами : заповниои форму, натиснули кнопку, під формою з'явився блок з вашим об'єктом
 // ==========================
-const button = document.querySelector('#click')
 
-button.addEventListener(
-    'click',
-    function (e) {
-        const blockDivUser = document.querySelector('#user')
-        blockDivUser.innerHTML = ""
-        e.preventDefault()
-        const form = document.form_1
-        const user = {
-            name: form.name.value,
-            surname: form.surname.value,
-            age: form.age.value
-        }
+const button = document.querySelector('#click');
+const form = document.form_1;
 
-        for (const userKey in user) {
+const user = {};
+function displayObj(e) {
+    const blockDivUser = document.querySelector('#user');
+    blockDivUser.innerHTML = '';
+    e.preventDefault();
 
-            const block = document.createElement('div')
-            block.innerText = `${userKey}: ${user[userKey]}`
-            blockDivUser.append(block)
-        }
+    const name = form.name.value.trim();
+    const surname = form.surname.value.trim();
 
-    })
+    if (user[name] && user[name].surname === surname) {
+        alert('Цей користувач вже існує');
+        return;
+    }
+
+    const age = form.age.value.trim();
+    user[name] = { surname, age };
+
+    for (const name in user) {
+        const { surname, age } = user[name];
+        const block = document.createElement('div');
+        block.innerText = `${name}: ${surname}, ${age}`;
+        blockDivUser.append(block);
+    }
+}
+
+button.addEventListener('click', displayObj);
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -50,6 +59,9 @@ document.onreadystatechange = function () {
 // 3) Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще,
 // в масив sessions зберігається інформація про дату та час відвідування сторінки.
 // =========================
+
+const buttonCheck = document.querySelector('.check_time')
+
 const now = new Date();
 const nowTime = {
     year: now.getFullYear(),
@@ -73,7 +85,8 @@ localStorage.setItem('sessions', JSON.stringify(sessions));
 const objArr = []
 for (let i = 0; i < 100; i++) {
     const newObj = {id: i + 1, name: `Object ${i + 1}`}
-    objArr.push(newObj)}
+    objArr.push(newObj)
+}
 
 
 const pageSize = 10;
@@ -141,4 +154,5 @@ function createTable() {
     }
     tableContainer.appendChild(table);
 }
+
 createTableBtn.addEventListener('click', createTable);
