@@ -4,12 +4,11 @@
 // ==========================
 const button = document.querySelector('#click')
 
-
-
-
 button.addEventListener(
     'click',
     function (e) {
+        const blockDivUser = document.querySelector('#user')
+        blockDivUser.innerHTML = ""
         e.preventDefault()
         const form = document.form_1
         const user = {
@@ -17,12 +16,14 @@ button.addEventListener(
             surname: form.surname.value,
             age: form.age.value
         }
+
         for (const userKey in user) {
-            const blockDivUser = document.querySelector('#user')
+
             const block = document.createElement('div')
             block.innerText = `${userKey}: ${user[userKey]}`
             blockDivUser.append(block)
         }
+
     })
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -58,7 +59,6 @@ const nowTime = {
     minutes: now.getMinutes()
 };
 
-
 let sessions = JSON.parse(localStorage.getItem('sessions')) || [];
 sessions.push(nowTime);
 localStorage.setItem('sessions', JSON.stringify(sessions));
@@ -71,13 +71,11 @@ localStorage.setItem('sessions', JSON.stringify(sessions));
 // При натисканні prev виводяться попередні 10 об'єктів
 
 const objArr = []
-
 for (let i = 0; i < 100; i++) {
-    const newObj = {
-        id: i + 1, name: `Object ${i + 1}`
-    }
-    objArr.push(newObj)
-}
+    const newObj = {id: i + 1, name: `Object ${i + 1}`}
+    objArr.push(newObj)}
+
+
 const pageSize = 10;
 let currentPage = 0;
 
