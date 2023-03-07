@@ -14,14 +14,13 @@ function displayObj(e) {
 
     const name = form.name.value.trim();
     const surname = form.surname.value.trim();
+    const age = form.age.value.trim();
+    user[name] = { surname, age };
 
     if (user[name] && user[name].surname === surname) {
         alert('Цей користувач вже існує');
         return;
     }
-
-    const age = form.age.value.trim();
-    user[name] = { surname, age };
 
     for (const name in user) {
         const { surname, age } = user[name];
@@ -97,7 +96,6 @@ function displayObjects() {
     const container = document.querySelector('.container');
     container.innerHTML = '';
 
-
     const startIndex = currentPage * pageSize;
     const endIndex = startIndex + pageSize;
     const pageObjects = objArr.slice(startIndex, endIndex);
@@ -136,13 +134,13 @@ displayObjects();
 
 const createTableBtn = document.getElementById('createTable');
 const tableContainer = document.getElementById('tableContainer');
+let table = null;
 
 function createTable() {
     const rows = parseInt(document.getElementById('rows').value);
     const columns = parseInt(document.getElementById('columns').value);
     const content = document.getElementById('content').value;
-
-    const table = document.createElement('table');
+    const newTable = document.createElement('table');
     for (let i = 0; i < rows; i++) {
         const row = document.createElement('tr');
         for (let j = 0; j < columns; j++) {
@@ -150,9 +148,14 @@ function createTable() {
             cell.textContent = content;
             row.appendChild(cell);
         }
-        table.appendChild(row);
+        newTable.appendChild(row);
     }
-    tableContainer.appendChild(table);
+    if (table) {
+        tableContainer.replaceChild(newTable, table);
+    } else {
+        tableContainer.appendChild(newTable);
+    }
+    table = newTable;
 }
 
 createTableBtn.addEventListener('click', createTable);
