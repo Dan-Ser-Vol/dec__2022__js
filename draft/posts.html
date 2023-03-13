@@ -1,21 +1,80 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+
+    <title>Posts Details</title>
 </head>
 <body>
-<div>Posts HTML</div>
+<header>
+    <div class="center_string">
+        <p class="animate">My first mini project</p>
+        <div style="width: 100px">
+            <a class="back" href="draft.html">Home</a>
+        </div>
+    </div>
+</header>
+<h1>Post Details</h1>
+<div class="user_container">
+    <div class="posts"></div>
+    <div class="comments"></div>
+    <div id="end"></div>
+</div>
 <script>
 
-const url = new URL(location.href)
-const json = url.searchParams.get('data')
-const post = JSON.parse(json)
-console.log(post);
+    const url = new URL(location.href)
+    const data = url.searchParams.get('data')
+    const post = {...JSON.parse(data)}
+    console.log(post)
+
+    const urlPosts = `https://jsonplaceholder.typicode.com/posts/${post.id}/comments`
+
+    let status = false
+    const getComments = async () => {
+        return await fetch(urlPosts)
+            .then(res => res.json())
+            .then(comments => {
+                const commentsDiv = document.querySelector('.comments')
+                commentsDiv.innerText = ''
+
+                if (status) {
+                    status = false
+                    commentsDiv.innerText = ''
+                    btnComments.innerText = 'VIEW COMMENTS'
+                } else {
+
+                    commentsDiv.innerHTML = comments.map(comment => `
+                     <div class="wrapper_comment">
+                     <div class="postInfoItem">Name: ${comment.name}</div>
+                     <div class="postInfoItem">Email: ${comment.email}</div>
+                     <div class="postInfoItem">Body: ${comment.body}</div>
+                     </div>
+                    `)
+
+                    status = true
+                    btnComments.innerText = 'HIDE COMMENTS'
+                }
+            })
+    }
+    const divPosts = document.querySelector('.posts')
+
+    divPosts.innerHTML = `
+     <div class="postInfoItem">User Id: ${post.userId}</div>>
+     <div class="postInfoItem">Id: ${post.id}</div>>
+     <div class="postInfoItem">Title: ${post.title}</div>>
+     <div class="postInfoItem">Body: ${post.body}</div>>
+     `
+
+    const btnComments = document.createElement('button')
+    btnComments.classList.add('btn_comments')
+    btnComments.innerText = 'VIEW COMMENTS'
+    btnComments.addEventListener('click', getComments)
+    divPosts.append(btnComments)
+
 </script>
 </body>
 </html>
+
