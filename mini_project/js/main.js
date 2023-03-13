@@ -6,9 +6,10 @@
 
 const getUsers = async () => {
     const response = await fetch('https://jsonplaceholder.typicode.com/users');
-    const users = await response.json();
+    return  await response.json()
+};
+getUsers().then((users)=>{
     const container = document.querySelector('.container');
-
     container.innerHTML = users.map(user => `
     <div class="user_info">
       <div>ID: ${user.id}</div>
@@ -16,7 +17,5 @@ const getUsers = async () => {
       <a class="btn_user_info" href='user-details.html?data=${JSON.stringify(user)}'>USER INFO</a>
     </div>
   `).join('');
-};
-
-getUsers();
+})
 

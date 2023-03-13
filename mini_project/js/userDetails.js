@@ -21,7 +21,6 @@ const getPosts = async () => {
     return await fetch(urlPosts).then(res => res.json())
 }
 
-
 let status = false
 
 getPosts().then((data) => {
