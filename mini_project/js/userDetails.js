@@ -1,4 +1,3 @@
-
 // На странице user-details.html:
 // Вивести всю, без виключення, інформацію про об'єкт user на який клікнули
 // Додати кнопку "post of current user", при кліку на яку, з'являються title всіх постів поточного юзера
@@ -6,25 +5,29 @@
 // Каждому посту додати кнопку/посилання, при кліку на яку відбувається перехід на сторінку post-details.html,
 // котра має детальну інфу про поточний пост.
 
-
 const url = new URL(location.href)
 const data = url.searchParams.get('data')
 const user = {...JSON.parse(data)}
+
 
 const divDetail = document.createElement('div')
 const divInfo = document.querySelector('.info');
 const btnPosts = document.querySelector('.btn_posts');
 divDetail.innerText = ''
 
+
 const urlPosts = `https://jsonplaceholder.typicode.com/users/${user.id}/posts`
 const getPosts = async () => {
-    return await fetch(urlPosts).then(res => res.json())
+try {
+    const res = await fetch(urlPosts)
+    return await res.json()
+}catch (error) {
+    console.log('Error:', error);
+}
 }
 
 let status = false
-
-getPosts().then((data) => {
-
+getPosts().then((posts) => {
     const postBlock = document.querySelector('.post_block')
     btnPosts.addEventListener('click', function () {
 
@@ -32,7 +35,6 @@ getPosts().then((data) => {
             postBlock.innerHTML = '';
             status = false;
             btnPosts.innerText = 'VIEW USER POSTS'
-
         } else {
             postBlock.innerHTML = ''
             const h3 = document.createElement('h3')
@@ -40,17 +42,15 @@ getPosts().then((data) => {
             h3.style.color = 'white'
             postBlock.appendChild(h3)
 
-            for (const userPost of data) {
+            for (const userPost of posts) {
                 const postA = document.createElement('a')
                 postA.classList.add('link')
                 postA.href = 'post-details.html?data=' + JSON.stringify(userPost)
                 postA.innerText = `Title: ${userPost.title}`
                 postBlock.append(postA)
-
             }
             status = true
             btnPosts.innerText = 'HIDE USER POSTS'
-
         }
     })
 })
@@ -77,5 +77,4 @@ function renderObject(obj) {
 
 const resultDiv = renderObject(user);
 divInfo.appendChild(resultDiv);
-
 

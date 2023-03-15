@@ -1,7 +1,7 @@
 
 :root {
     --pink-color: #e38e8e;
-    --blue-color: #3ec9f5;
+    --blue-color: #a8ddee;
     --white-blue-color: #fdfdfd;
     --gray-color: #f1ecec;
     --darkGray-color: #101111;
@@ -34,8 +34,8 @@ header {
     padding: 30px;
     font-style: italic;
     font-size: 34px;
-
     z-index: 1;
+    text-shadow : 2px 2px 4px var(--blue-color) ;
 }
 
 .center_string {
@@ -86,26 +86,29 @@ h1 {
     font-size: 36px;
     font-weight: bold;
     text-align: center;
+    border-radius: 3px;
     color: var(--darkGray-color);
     background: var(--white-blue-color);
+    text-shadow: 2px 2px 4px var(  --blue-color) ;
 }
 
 /*_____________________________________________USER______________________________________________________________*/
 .user_info {
-    width: 35%;
+    width: 30%;
     padding: 50px;
     background-color: var(--white-blue-color);
     margin-bottom: 10px;
     border-radius: 3px;
     transition: all 0.2s ease-in-out;
     color: #6e5f63;
-    font-size: 18px;
+    font-size: 24px;
     position: relative;
 }
 
 .user_info:hover {
     transform: translateY(-1px);
     background-color: var(--white-blue-color);;
+    text-shadow: 2px 2px 4px var(--pink-color) ;
 }
 
 .user_info {
@@ -114,10 +117,14 @@ h1 {
 }
 
 .item {
-    padding: 5px;
+    padding: 15px 10px;
     margin-top: 5px;
     background-color: var(--white-blue-color);
     border-radius: 3px;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px var(  --pink-color) ;
+
 }
 
 a {
@@ -138,12 +145,15 @@ a {
     top: 10px;
     background-color:  var(--pink-color);
     border-radius: 3px;
-    color: var(--white-blue-color)
+    color: var(--white-blue-color);
+    transition: all 0.2s ease-in-out;
 
 }
  .btn_user_info:hover {
     background-color:var(--blue-color);
     transform: translateY(-1px);
+     text-shadow: 2px 2px 4px var(--pink-color) ;
+     box-shadow : 2px 2px 4px var(--pink-color) ;
 }
 .btn_posts {
     margin: 20px 55px;
@@ -154,11 +164,14 @@ a {
     color:var(--white-blue-color);
     border: none;
     font-weight: bold;
+    transition: all 0.2s ease-in-out;
 }
 
 .btn_posts:hover {
     background-color:var(--blue-color);
     transform: translateY(-1px);
+    text-shadow: 2px 2px 4px var(--pink-color) ;
+    box-shadow : 2px 2px 4px var(--pink-color) ;
 }
 
 .back {
@@ -167,10 +180,12 @@ a {
     width: 120px;
     justify-self: end;
     margin-left: 350px;
+    transition: all 0.2s ease-in-out;
 }
 
 .back:hover {
     color:var(--white-blue-color);
+    text-shadow: 2px 2px 4px var(--pink-color) ;
 }
 
 .detail {
@@ -212,16 +227,24 @@ a {
     border-radius: 3px;
     font-size: 20px;
     font-weight: bolder;
+    text-shadow: 2px 2px 4px var(--pink-color) ;
 }
 
 .link {
     color: var(--white-blue-color);
     font-weight: bolder;
     padding: 3px;
+    transition: font-size 0.2s ease-in-out;
+}
+
+.link:visited {
+    color: var(--blue-color);
 }
 
 .link:hover {
-    color:var(--pink-color);
+    text-shadow: 2px 2px 4px var(--pink-color) ;
+    color: var(--blue-color);
+
 }
 /*______________________________________________COMMENTS______________________________________________________*/
 
@@ -240,8 +263,11 @@ a {
     color: var(--white-blue-color);
     border: none;
     font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    text-shadow : 2px 2px 4px var(--pink-color) ;
 }
 .btn_comments:hover {
     background-color: var(--blue-color);
     transform: translateY(-1px);
+    box-shadow : 2px 2px 4px var(--pink-color) ;
 }

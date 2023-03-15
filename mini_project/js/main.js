@@ -4,18 +4,60 @@
 // 3 Додати кожному блоку кнопку/посилання , при кліку на яку відбувається перехід  на
 // сторінку user-details.html, котра має детальну інфорацію про об'єкт на який клікнули
 
-const getUsers = async () => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users');
-    return  await response.json()
-};
-getUsers().then((users)=>{
-    const container = document.querySelector('.container');
-    container.innerHTML = users.map(user => `
+
+async function getUsers() {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users');
+        return await response.json();
+    } catch (error) {
+        console.log('Error:', error);
+    }
+}
+
+function createUserHTML(user) {
+    return `
     <div class="user_info">
       <div>ID: ${user.id}</div>
       <div>NAME: ${user.name}</div>
       <a class="btn_user_info" href='user-details.html?data=${JSON.stringify(user)}'>USER INFO</a>
     </div>
-  `).join('');
-})
+  `;
+}
+
+function renderUsers(users) {
+    const container = document.querySelector('.container');
+    container.innerHTML = users.map(user => createUserHTML(user)).join('');
+}
+
+getUsers().then(renderUsers);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
